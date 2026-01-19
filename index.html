@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambo Digital | Resultado & Performance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- VARIÁVEIS DE CORES --- */
+        :root {
+            --bg-body: #050507;
+            --bg-card: #0d0d12;
+            --primary-purple: #6a3de8;
+            --primary-pink: #e83d95;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a5;
+            --border-color: #1e1e24;
+            --gradient-text: linear-gradient(90deg, #6a3de8 0%, #e83d95 100%);
+            --gradient-btn: linear-gradient(90deg, #6a3de8 0%, #e83d95 100%);
+        }
+
+        /* --- RESET BÁSICO --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- GRADIENTE DE FUNDO SUPERIOR --- */
+        .top-section-wrapper {
+            width: 100%;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(106, 61, 232, 0.18) 0%, transparent 65%),
+                radial-gradient(circle at 85% 75%, rgba(232, 61, 149, 0.1) 0%, transparent 65%);
+        }
+
+        /* --- HEADER --- */
+        header { padding: 30px 0; }
+        .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: -1px; }
+        .logo span { color: var(--primary-pink); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 0 120px 0;
+            gap: 80px;
+        }
+
+        .hero-content { flex: 1; }
+
+        .tag {
+            display: inline-block;
+            background: rgba(232, 61, 149, 0.1);
+            color: var(--primary-pink);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(232, 61, 149, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+            max-width: 650px;
+        }
+        .hero h1 span {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            color: var(--text-dim);
+            max-width: 550px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* --- FORMULÁRIO --- */
+        .form-container {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 25px;
+            width: 100%;
+            max-width: 440px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .form-container h2 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-align: left;
+        }
+        .form-group { margin-bottom: 15px; }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 16px 18px;
+            background: #08080a;
+            border: 1px solid #2a2a35;
+            border-radius: 12px;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        /* Ajuste para opções do select ficarem visíveis */
+        .form-group select option {
+            background-color: #0d0d12;
+            color: white;
+        }
+
+        .form-group input::placeholder { color: #555; }
+        .form-group input:focus {
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 2px rgba(106, 61, 232, 0.2);
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            background: var(--gradient-btn);
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .btn-submit:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        /* --- PARCEIROS --- */
+        .partners { padding: 60px 0; text-align: center; border-top: 1px solid #141418; }
+        .partners p { 
+            font-size: 10px; text-transform: uppercase; color: #444; 
+            letter-spacing: 2px; margin-bottom: 30px; font-weight: 700; 
+        }
+        .partner-logos {
+            display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;
+            opacity: 0.5; font-weight: 700; font-size: 1.1rem; filter: grayscale(100%);
+        }
+
+        /* --- TEAM --- */
+        .team { padding: 100px 0; text-align: center; }
+        .team h2 { font-size: 2.2rem; margin-bottom: 15px; font-weight: 800; }
+        .team-subtitle { color: var(--text-dim); margin-bottom: 70px; font-size: 1rem; }
+        .team-grid { display: flex; justify-content: center; gap: 100px; }
+        .member { max-width: 300px; }
+        
+        .member-photo {
+            width: 180px; 
+            height: 180px; 
+            background: #121216; 
+            border-radius: 50%; 
+            object-fit: cover;
+            border: 2px solid #1e1e24;
+            margin: 0 auto 30px; 
+            display: block;
+        }
+
+        .member h3 { font-size: 1.5rem; margin-bottom: 5px; font-weight: 700; }
+        .member .role { 
+            color: var(--primary-pink); font-size: 10px; text-transform: uppercase; 
+            font-weight: 800; margin-bottom: 15px; display: block; letter-spacing: 1px; 
+        }
+        .member p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; }
+
+        /* --- MÉTODO --- */
+        .method { padding: 80px 0; text-align: center; }
+        .method-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 70px;
+        }
+        .method-card {
+            background: var(--bg-card); padding: 50px 35px; border-radius: 25px;
+            text-align: left; position: relative; border: 1px solid #1a1a20;
+            overflow: hidden; transition: border-color 0.3s, transform 0.3s;
+        }
+        .method-card:hover { border-color: var(--primary-purple); transform: translateY(-5px); }
+        .method-card .number {
+            position: absolute; top: 15px; right: 25px; font-size: 5rem;
+            font-weight: 900; color: rgba(255,255,255,0.03); line-height: 1; user-select: none;
+        }
+        .method-card i { color: var(--primary-purple); font-size: 1.4rem; margin-bottom: 25px; display: block; }
+        .method-card h3 { font-size: 1.3rem; margin-bottom: 15px; font-weight: 700; }
+        .method-card p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.6; }
+
+        /* --- STATS --- */
+        .stats {
+            padding: 120px 0;
+            background: linear-gradient(to top, #050507, #0a0a0e);
+        }
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        .stat-item h2 { font-size: 4rem; font-weight: 800; margin-bottom: 5px; line-height: 1; }
+        .stat-item h2 span { color: var(--primary-pink); }
+        .stat-item p { font-size: 11px; text-transform: uppercase; color: var(--text-dim); letter-spacing: 2px; font-weight: 700; }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 992px) {
+            .hero { 
+                flex-direction: column; 
+                text-align: center; 
+                gap: 50px;
+                padding-top: 40px;
+            }
+            .hero-content { width: 100%; display: flex; flex-direction: column; align-items: center; }
+            .hero h1 { font-size: 3rem; max-width: 100%; }
+
+            .team-grid { flex-direction: column; align-items: center; gap: 60px; }
+            .stats-container { flex-direction: column; gap: 60px; align-items: center; }
+            .method-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.2rem; }
+            .form-container { padding: 30px 20px; width: 100%; }
+            .form-container h2 { text-align: center; }
+            .method-grid { grid-template-columns: 1fr; } 
+            .partner-logos { flex-direction: column; gap: 30px; }
+            .stat-item h2 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-section-wrapper">
+        <header class="container">
+            <div class="logo">CAMBO<span>.</span></div>
+        </header>
+
+        <main>
+            <section class="container hero">
+                <div class="hero-content">
+                    <span class="tag">Resultado & Performance</span>
+                    <h1>Escaneie o potencial da sua marca e <span>domine o mercado.</span></h1>
+                    <p>O método validado para empresas que buscam escala. Transformamos cliques em faturamento através de inteligência de dados.</p>
+                </div>
+
+                <div class="form-container">
+                    <h2>Agende seu Diagnóstico</h2>
+                    <!-- Formulário atualizado sem campo de telefone e com Segmento -->
+                    <form id="leadForm" onsubmit="enviarWhatsApp(event)">
+                        <div class="form-group">
+                            <input type="text" id="nome" placeholder="Nome Completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="E-mail Corporativo" required>
+                        </div>
+                        
+                        <!-- Novo Campo de Segmento -->
+                        <div class="form-group">
+                            <select id="segmento" required>
+                                <option value="" disabled selected>Qual o seu segmento?</option>
+                                <option value="Serviço">Serviço</option>
+                                <option value="Varejo">Varejo</option>
+                                <option value="Indústria">Indústria</option>
+                                <option value="E-commerce">E-commerce</option>
+                                <option value="Food Service">Food Service</option>
+                                <option value="Educação">Educação</option>
+                                <option value="Imobiliária">Imobiliária</option>
+                                <option value="Clínica Odontológica">Clínica Odontológica</option>
+                                <option value="SAAS">SAAS</option>
+                                <option value="Finanças">Finanças</option>
+                                <option value="Franquia / Franchising">Franquia / Franchising</option>
+                                <option value="Telecom">Telecom</option>
+                                <option value="Energia Solar">Energia Solar</option>
+                                <option value="Turismo">Turismo</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <select id="faturamento" required>
+                                <option value="" disabled selected>Faturamento Mensal</option>
+                                <option value="Ate 50k">Até R$ 50k</option>
+                                <option value="50k a 200k">R$ 50k - R$ 200k</option>
+                                <option value="Acima de 200k">Acima de R$ 200k</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit">QUERO ESCALAR COM A CAMBO</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <section class="partners container">
+        <p>Estratégias validadas nas maiores plataformas</p>
+        <div class="partner-logos">
+            <span>Google Partner</span>
+            <span>Meta Business</span>
+            <span>TikTok Ads</span>
+            <span>RD Station</span>
+        </div>
+    </section>
+
+    <section class="container team">
+        <h2>Quem lidera a estratégia</h2>
+        <p class="team-subtitle">Unimos dados e criatividade para colocar sua empresa no topo.</p>
+        
+        <div class="team-grid">
+            <div class="member">
+                <img src="1.png" alt="Foto do Vicenzo" class="member-photo">
+                <h3>Vicenzo Hoffmann</h3>
+                <span class="role">Head de Estratégia</span>
+                <p>Especialista em tráfego pago com foco em escala e otimização de ROI para grandes contas.</p>
+            </div>
+
+            <div class="member">
+                <img src="2.png" alt="Foto do Ronaldy" class="member-photo">
+                <h3>Ronaldy</h3>
+                <span class="role">Head de Operações</span>
+                <p>Expert em processos comerciais e implementação de funis de vendas de alta conversão.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container method">
+        <h2>O Método Cambo</h2>
+        <div class="method-grid">
+            <div class="method-card">
+                <span class="number">01</span>
+                <i class="fas fa-search"></i>
+                <h3>Diagnóstico</h3>
+                <p>Mapeamos os gargalos operacionais e financeiros do seu marketing atual para encontrar oportunidades ocultas.</p>
+            </div>
+            <div class="method-card">
+                <span class="number">02</span>
+                <i class="fas fa-map"></i>
+                <h3>Estratégia</h3>
+                <p>Desenhamos o funil ideal e a jornada de compra focando onde seu cliente realmente está.</p>
+            </div>
+            <div class="method-card">
+                <span class="number">03</span>
+                <i class="fas fa-play"></i>
+                <h3>Execução</h3>
+                <p>Criação de anúncios, copywriting persuasivo e landing pages de alta performance.</p>
+            </div>
+            <div class="method-card">
+                <span class="number">04</span>
+                <i class="fas fa-chart-line"></i>
+                <h3>Otimização</h3>
+                <p>Escala baseada em dados reais e testes A/B, garantindo o melhor ROI do mercado.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container stats-container">
+            <div class="stat-item">
+                <h2>+10<span>M</span></h2>
+                <p>Gerenciados em anúncios</p>
+            </div>
+            <div class="stat-item">
+                <h2>5<span>x</span></h2>
+                <p>ROI médio dos clientes</p>
+            </div>
+            <div class="stat-item">
+                <h2>+200</h2>
+                <p>Projetos entregues</p>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; font-size: 11px; color: #444; border-top: 1px solid #141418; letter-spacing: 1px;">
+        © 2025 Cambo Digital. Foco em performance, entrega de resultados.
+    </footer>
+
+    <!-- SCRIPT ATUALIZADO (SEM CAMPO DE WHATSAPP NO FORM, INCLUINDO SEGMENTO) -->
+    <script>
+        function enviarWhatsApp(event) {
+            event.preventDefault(); // Impede que a página recarregue
+
+            // Pega os valores dos campos
+            const nome = document.getElementById("nome").value;
+            const email = document.getElementById("email").value;
+            const segmento = document.getElementById("segmento").value;
+            const faturamento = document.getElementById("faturamento").value;
+
+            // Formata a mensagem
+            const mensagem = `*Novo Lead do Site - Cambo Digital*%0A%0A` +
+                             `*Nome:* ${nome}%0A` +
+                             `*Email:* ${email}%0A` +
+                             `*Segmento:* ${segmento}%0A` +
+                             `*Faturamento:* ${faturamento}%0A%0A` +
+                             `Gostaria de escalar com a Cambo!`;
+
+            // Número de telefone de destino (Seu número)
+            const telefoneDestino = "554896280861";
+
+            // Cria o link do WhatsApp
+            const url = `https://wa.me/${telefoneDestino}?text=${mensagem}`;
+
+            // Abre o WhatsApp em uma nova aba
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
